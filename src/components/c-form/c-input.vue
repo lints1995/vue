@@ -1,6 +1,11 @@
 <template>
   <div>
-    <input :placeholder="placeholder" :value="value" @input="handleInput" />
+    <input
+      :placeholder="placeholder"
+      :value="value"
+      @input="handleInput"
+      v-bind="$attrs"
+    />
   </div>
 </template>
 

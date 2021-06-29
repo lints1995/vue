@@ -1,7 +1,7 @@
 <template>
   <div>
     <c-button path="/drag-table">拖拽表格</c-button>
-    <c-button path="/form">表单封装</c-button>
+    <c-button path="/form">表单封装实现</c-button>
   </div>
 </template>
 <script>
