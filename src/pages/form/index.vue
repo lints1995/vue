@@ -43,12 +43,12 @@ export default {
   methods: {
     login() {
       this.$refs["loginForm"].validate((res) => {
-        console.log(res);
-        if (res) {
-          alert("验证通过");
-        } else {
-          alert("验证失败");
-        }
+        const notice = this.$notice({
+          title: "提示",
+          message: res ? "验证通过" : "验证失败",
+          duration: 1000,
+        });
+        notice.show();
       });
     },
   },
