@@ -1,12 +1,13 @@
 <template>
   <div class="c-button">
     <router-link :to="path">
-      <el-button><slot></slot></el-button>
+      <el-button v-bind="$attrs"><slot></slot></el-button>
     </router-link>
   </div>
 </template>
 <script>
 export default {
+  inheritAttrs: false,
   props: {
     path: {
       type: String,

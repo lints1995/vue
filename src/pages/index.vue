@@ -1,14 +1,23 @@
 <template>
   <div>
-    <c-button path="/drag-table">拖拽表格</c-button>
-    <c-button path="/form">表单封装实现</c-button>
+    <template v-for="(route, index) in routes">
+      <c-button v-if="route.meta" :key="index" :path="route.path">{{
+        route.meta.title
+      }}</c-button>
+    </template>
   </div>
 </template>
 <script>
 import CButton from "@/components/c-button";
+import routes from "@/const/routes";
 export default {
   components: {
     CButton,
+  },
+  computed: {
+    routes() {
+      return routes;
+    },
   },
 };
 </script>
