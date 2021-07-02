@@ -1,13 +1,23 @@
+import View from "./view";
+import Link from "./link";
+
 let Vue;
 
 class VueRouter {
   constructor(options) {
     this.$options = options;
-    // defineReactive该方法为vue提供的工具方法，目的是让current具备和页面响应式， 初始化时赋值为首页路由
+    // defineReactive该方法为vue提供的工具方法，目的是让current具备和页面响应式，
+    // 只要current值发生改变render函数就会重新执行
+    // 初始化时赋值为首页路由
     Vue.util.defineReactive(this, "current", "/");
     //  监听路由的变化，来加载不同的页面
     window.addEventListener("hashchange", this.setCurrentRouter.bind(this));
-    window.addEventListener("load", this.setCurrentRouter.bind(this));
+    window.addEventListener("load", this.setCurrentRouter.bind(this)); // 解决刷新后再重新赋值路由
+    //创建路由映射表,不通过遍历routes查找组件
+    this.routerMap = {};
+    this.$options.routes.map((el) => {
+      this.routerMap[el.path] = el.component;
+    });
   }
   setCurrentRouter() {
     this.current = window.location.hash.slice(1);
@@ -25,25 +35,7 @@ VueRouter.install = function(_Vue) {
       }
     },
   });
-  Vue.component("router-link", {
-    props: {
-      to: {
-        type: String,
-        required: true,
-      },
-    },
-    render(h) {
-      return h("a", { attrs: { href: `#${this.to}` } }, this.$slots.default);
-    },
-  });
-  Vue.component("router-view", {
-    render(h) {
-      let com = null;
-      com = this.$router.$options.routes.find((el) => {
-        return el.path === this.$router.current;
-      }).component;
-      return h(com);
-    },
-  });
+  Vue.component("router-link", Link);
+  Vue.component("router-view", View);
 };
 export default VueRouter;
