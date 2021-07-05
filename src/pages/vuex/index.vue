@@ -7,5 +7,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    // this.$store.state = 1;
+  },
+};
 </script>
