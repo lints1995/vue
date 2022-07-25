@@ -1,23 +1,32 @@
 <template>
-  <div>
-    <template v-for="(route, index) in routes">
-      <c-button v-if="route.meta" :key="index" :path="route.path">{{
+  <div class="items">
+    <div class="item" v-for="(route, index) in routes" :key="index">
+      <c-button v-if="route.meta" :path="route.path">{{
         route.meta.title
       }}</c-button>
-    </template>
+    </div>
   </div>
 </template>
 <script>
 import CButton from "@/components/c-button";
-import routes from "@/const/routes";
+import routes from "@/cRouter/routes";
 export default {
   components: {
-    CButton,
+    CButton
   },
   computed: {
     routes() {
       return routes;
-    },
-  },
+    }
+  }
 };
 </script>
+<style scoped>
+.items{
+  display: flex;
+  justify-content: space-evenly;
+}
+.item{
+  flex: 1;
+}
+</style>
