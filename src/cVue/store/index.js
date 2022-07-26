@@ -1,3 +1,6 @@
+/**
+ * vuex 实现
+ */
 // 保存构造函数的引用，避免import
 let Vue;
 
@@ -8,8 +11,8 @@ class Store {
     // 添加响应的state
     this.vm = new Vue({
       data: {
-        $$state: options.state,
-      }, // 两个$$，Vue不会去代理，在页面中不能访问到
+        $$state: options.state
+      } // 两个$$，Vue不会去代理，在页面中不能访问到
     });
     // 在这里绑定commit，dispatch的上下文，防止在下面使用时this指向的改变
     this.commit = this.commit.bind(this);
@@ -46,10 +49,10 @@ function install(_Vue) {
       if (this.$options.store) {
         Vue.prototype.$store = this.$options.store;
       }
-    },
+    }
   });
 }
 export default {
   Store,
-  install,
+  install
 };

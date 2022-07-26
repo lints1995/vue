@@ -10,6 +10,6 @@
 export default {
   mounted() {
     // this.$store.state = 1;
-  },
+  }
 };
 </script>

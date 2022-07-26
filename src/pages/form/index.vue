@@ -26,18 +26,18 @@ export default {
   components: {
     CForm,
     CFormItem,
-    CInput,
+    CInput
   },
   data() {
     return {
       userInfo: {
         username: "",
-        password: "",
+        password: ""
       },
       rules: {
         username: [{ required: true, message: "请输入用户名称" }],
-        password: [{ required: true, message: "请输入密码" }],
-      },
+        password: [{ required: true, message: "请输入密码" }]
+      }
     };
   },
   methods: {
@@ -46,11 +46,11 @@ export default {
         const notice = this.$notice({
           title: "提示",
           message: res ? "验证通过" : "验证失败",
-          duration: 1000,
+          duration: 1000
         });
         notice.show();
       });
-    },
-  },
+    }
+  }
 };
 </script>

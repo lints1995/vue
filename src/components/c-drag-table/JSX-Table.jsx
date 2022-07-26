@@ -1,3 +1,6 @@
+/**
+ * 使用jsx渲染table
+ */
 export default {
   name: "JSX-Table",
   data() {
@@ -6,23 +9,23 @@ export default {
         {
           date: "2016-05-02",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
-        },
+          address: "上海市普陀区金沙江路 1518 弄"
+        }
       ],
       tableColumn: [
         {
           prop: "name",
-          label: "姓名",
+          label: "姓名"
         },
         {
           prop: "date",
-          label: "日期",
+          label: "日期"
         },
         {
           prop: "address",
-          label: "地址",
-        },
-      ],
+          label: "地址"
+        }
+      ]
     };
   },
   render() {
@@ -34,5 +37,5 @@ export default {
         })}
       </el-table>
     );
-  },
+  }
 };

@@ -14,7 +14,7 @@ import DragTable from "@/components/c-drag-table/index";
 export default {
   components: {
     JSXRenderDragTable,
-    DragTable,
-  },
+    DragTable
+  }
 };
 </script>

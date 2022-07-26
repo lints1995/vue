@@ -1,3 +1,6 @@
+/**
+ * 组件扩展
+ */
 import Vue from "vue";
 
 // render版本
@@ -8,7 +11,7 @@ function create(component, props) {
 
   //   h是createElement，返回vNode虚拟dom
   const vm = new Vue({
-    render: (h) => h(component, { props }),
+    render: (h) => h(component, { props })
   }).$mount(); // 这里挂载不指定页面中的真实dom，以为会把页面中的dom内容覆盖调，但是需要挂载获取真实的dom
 
   // 向页面追加

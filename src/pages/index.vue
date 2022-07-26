@@ -9,7 +9,7 @@
 </template>
 <script>
 import CButton from "@/components/c-button";
-import routes from "@/cRouter/routes";
+import routes from "@/router/routes";
 export default {
   components: {
     CButton
@@ -22,11 +22,11 @@ export default {
 };
 </script>
 <style scoped>
-.items{
+.items {
   display: flex;
   justify-content: space-evenly;
 }
-.item{
+.item {
   flex: 1;
 }
 </style>
