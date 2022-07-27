@@ -39,9 +39,8 @@ class VueRouter {
     return window.location.hash.slice(1);
   }
   setCurrentHashRouter() {
-    console.log("hash改变");
     this.current = !this.getCurrentHashRouter()
-      ? "#/"
+      ? "/"
       : this.getCurrentHashRouter();
   }
 }
